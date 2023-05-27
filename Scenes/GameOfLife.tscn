@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/GoLBoard.tscn" type="PackedScene" id=1]
+
+[node name="GameOfLife" type="Node2D"]
+
+[node name="GoLBoard" parent="." instance=ExtResource( 1 )]
+BoardX = 160
+BoardY = 80
+CellSize = 5
+CellBorder = 1
+Delay = 0.023
+
+[node name="Controls" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="PlayButton" type="Button" parent="Controls"]
+margin_left = 397.0
+margin_top = 517.0
+margin_right = 634.0
+margin_bottom = 566.0
+text = "Paused"
+
+[node name="RandButton" type="Button" parent="Controls"]
+margin_left = 93.0
+margin_top = 519.0
+margin_right = 330.0
+margin_bottom = 568.0
+text = "Randomize"
+
+[node name="AlgoButton" type="Button" parent="Controls"]
+margin_left = 736.0
+margin_top = 518.0
+margin_right = 973.0
+margin_bottom = 567.0
+text = "Sequential"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 510, 298 )
+
+[connection signal="pressed" from="Controls/PlayButton" to="GoLBoard" method="PauseGBoard"]
+[connection signal="pressed" from="Controls/RandButton" to="GoLBoard" method="RandomizeBoard"]
+[connection signal="pressed" from="Controls/AlgoButton" to="GoLBoard" method="ChangeAlgo"]

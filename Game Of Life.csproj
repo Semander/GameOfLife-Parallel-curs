@@ -1,0 +1,22 @@
+<Project Sdk="Godot.NET.Sdk/3.3.0">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <RootNamespace>GameOfLife</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="ModelTest\**" />
+    <Compile Remove="Benchmark\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="ModelTest\**" />
+    <EmbeddedResource Remove="Benchmark\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Update="GodotSharpEditor">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+</Project>
